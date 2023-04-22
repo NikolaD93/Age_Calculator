@@ -1,0 +1,20 @@
+@use "../abstracts/variables" as *;
+
+input {
+    font-size: 24px;
+    font-weight: 800;
+    width: 90%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid $light-grey;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}

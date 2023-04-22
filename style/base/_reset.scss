@@ -12,6 +12,9 @@ body {
     padding: 0;
     line-height: 1.2;
     background-color: $off-white;
+    display: grid;
+    place-items: center;
+    height: 100vh;
 }
 
 ul {
