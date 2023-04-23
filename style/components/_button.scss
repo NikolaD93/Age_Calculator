@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/responsive" as *;
 
 button {
     background-color: $purple;
@@ -16,9 +17,26 @@ button {
     transition: $transition;
     cursor: pointer;
 
+    @include devices(mobile) {
+        width: 50px;
+        height: 50px;
+        left: calc(50% - 25px);
+    }
+
+    @include devices(tablet) {
+        width: 60px;
+        height: 60px;
+    }
+
     img {
         width: 35px;
         height: 35px;
+        object-fit: cover;
+
+        @include devices(mobile) {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     &:hover {

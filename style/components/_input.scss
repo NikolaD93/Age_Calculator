@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/responsive" as *;
 
 input {
     font-size: 24px;
@@ -9,6 +10,15 @@ input {
     border: 1px solid $light-grey;
     outline: none;
     transition: $transition;
+
+    @include devices(mobile) {
+        font-size: 18px;
+        padding-inline: 10px;
+    }
+
+    @include devices(tablet) {
+        font-size: 20px;
+    }
 
     &:focus,
     &:hover,
