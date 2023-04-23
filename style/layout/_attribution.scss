@@ -1,0 +1,21 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/responsive" as *;
+
+.attribution {
+    width: 90%;
+    text-align: center;
+    color: $smokey-grey;
+
+    a {
+        color: $purple;
+        transition: $transition;
+
+        &:hover{
+            color: $off-black;
+        }
+    }
+
+    @include devices(mobile) {
+        font-size: 14px;
+    }
+}

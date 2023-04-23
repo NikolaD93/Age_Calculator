@@ -37,7 +37,6 @@
             @include devices(mobile) {
                 width: 100%;
                 gap: 5px;
-                margin-bottom: 30px;
             }
 
             .day-wrapper,
@@ -48,7 +47,12 @@
                 gap: 10px;
 
                 .error-empty-input {
-                    display: none;
+                    visibility: hidden;
+                    opacity: 0;
+                    color: $light-red;
+                    font-size: 12px;
+                    font-style: italic;
+                    font-weight: 300;
                 }
 
                 &.error {
@@ -61,11 +65,8 @@
                     }
 
                     .error-empty-input {
-                        display: block;
-                        color: $light-red;
-                        font-size: 12px;
-                        font-style: italic;
-                        font-weight: 300;
+                        visibility: visible;
+                        opacity: 1;
                     }
                 }
             }
@@ -80,3 +81,4 @@
         }
     }
 }
+
