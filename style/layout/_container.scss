@@ -2,7 +2,7 @@
 @use "../abstracts/responsive" as *;
 
 .container {
-    background-color: $white;    
+    background-color: $white;
     max-width: 600px;
     border-radius: 20px 20px 100px 20px;
     padding: 50px 40px;
@@ -40,10 +40,34 @@
                 margin-bottom: 30px;
             }
 
-            div {
+            .day-wrapper,
+            .month-wrapper,
+            .year-wrapper {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+
+                .error-empty-input {
+                    display: none;
+                }
+
+                &.error {
+                    label {
+                        color: $light-red;
+                    }
+
+                    input {
+                        border: 1px solid $light-red;
+                    }
+
+                    .error-empty-input {
+                        display: block;
+                        color: $light-red;
+                        font-size: 12px;
+                        font-style: italic;
+                        font-weight: 300;
+                    }
+                }
             }
         }
     }
@@ -54,6 +78,5 @@
         span:nth-of-type(odd) {
             color: $purple;
         }
-        
     }
 }

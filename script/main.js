@@ -1,42 +1,54 @@
-let dayInput = document.querySelector('input[name="day"]');
-let monthInput = document.querySelector('input[name="month"]');
-let yearInput = document.querySelector('input[name="year"]');
+const dayInput = document.querySelector('input[name="day"]');
+const monthInput = document.querySelector('input[name="month"]');
+const yearInput = document.querySelector('input[name="year"]');
 
-let dayDisplay = document.getElementById("dayDisplay");
-let monthDisplay = document.getElementById("monthDisplay");
-let yearDisplay = document.getElementById("yearDisplay");
+const dayDisplay = document.getElementById("dayDisplay");
+const monthDisplay = document.getElementById("monthDisplay");
+const yearDisplay = document.getElementById("yearDisplay");
 
-let form = document.querySelector("form");
+const dayWrapper = document.querySelector(".day-wrapper");
+const monthWrapper = document.querySelector(".month-wrapper");
+const yearWrapper = document.querySelector(".year-wrapper");
 
-let day = "";
-let month = "";
-let year = "";
+const form = document.querySelector("form");
 
-
-const handleFormSubmit = (e) => {
+const calculateAge = (e) => {
   e.preventDefault();
 
-  day = dayInput.value;
-  month = monthInput.value;
-  year = yearInput.value;
+  const day = dayInput.value;
+  const month = monthInput.value;
+  const year = yearInput.value;
 
-  let inputDate = new Date(year, month - 1, day);
-  
-  let diffInMs = Date.now() - inputDate.getTime();
+  const inputDate = new Date(year, month - 1, day);
 
-  let ageDate = new Date(diffInMs)
-  let years = ageDate.getUTCFullYear() - 1970;
-  let months = ageDate.getUTCMonth();
-  let days = ageDate.getUTCDate() - 1;
+  const diffInMs = Date.now() - inputDate.getTime();
 
-  yearDisplay.textContent = years;
-  monthDisplay.textContent = months;
-  dayDisplay.textContent = days;
+  const ageDate = new Date(diffInMs);
+  const years = ageDate.getUTCFullYear() - 1970;
+  const months = ageDate.getUTCMonth();
+  const days = ageDate.getUTCDate() - 1;
 
-  dayInput.value = "";
-  monthInput.value = "";
-  yearInput.value = "";
-  dayInput.focus();
+  if (day && month && year) {
+    dayDisplay.textContent = days;
+    monthDisplay.textContent = months;
+    yearDisplay.textContent = years;
+  } else {
+    dayWrapper.classList.toggle("error", !day);
+    monthWrapper.classList.toggle("error", !month);
+    yearWrapper.classList.toggle("error", !year);
+  }
 };
 
-form.addEventListener("submit", handleFormSubmit);
+dayInput.addEventListener("input", () => {
+  dayWrapper.classList.remove("error");
+});
+
+monthInput.addEventListener("input", () => {
+  monthWrapper.classList.remove("error");
+});
+
+yearInput.addEventListener("input", () => {
+  yearWrapper.classList.remove("error");
+});
+
+form.addEventListener("submit", calculateAge);
