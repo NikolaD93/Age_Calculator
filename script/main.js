@@ -58,6 +58,12 @@ const calculateAge = (e) => {
         yearDisplay.classList.add("animate");
       } else {
         dayWrapper.classList.add("error");
+        monthWrapper.classList.add("error");
+        yearWrapper.classList.add("error");
+        dayErrorMsg.textContent = "";
+        monthErrorMsg.textContent = "";
+        yearErrorMsg.textContent = "";
+        // create element
         dateErrorMsg.textContent = "Must be a valid date";
       }
     }
