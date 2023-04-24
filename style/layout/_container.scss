@@ -11,6 +11,7 @@
 
     @include devices(mobile) {
         width: 90%;
+        padding: 30px;
     }
 
     @include devices(tablet) {
