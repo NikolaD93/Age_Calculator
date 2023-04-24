@@ -63,7 +63,6 @@ const calculateAge = (e) => {
         dayErrorMsg.textContent = "";
         monthErrorMsg.textContent = "";
         yearErrorMsg.textContent = "";
-        // create element
         dateErrorMsg.textContent = "Must be a valid date";
       }
     }
