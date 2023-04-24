@@ -32,7 +32,7 @@
         .inputs {
             display: flex;
             gap: 10px;
-            width: 80%;
+            width: 90%;
 
             @include devices(mobile) {
                 width: 100%;
@@ -46,13 +46,22 @@
                 flex-direction: column;
                 gap: 10px;
 
-                .error-empty-input {
+                .day-error-message,
+                .month-error-message,
+                .year-error-message,
+                .date-error-message {
                     visibility: hidden;
                     opacity: 0;
                     color: $light-red;
                     font-size: 12px;
                     font-style: italic;
                     font-weight: 300;
+                    transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+
+                    @include devices(mobile) {
+                        font-size: 10px;
+                        margin-bottom: 10px;
+                    }
                 }
 
                 &.error {
@@ -64,9 +73,13 @@
                         border: 1px solid $light-red;
                     }
 
-                    .error-empty-input {
+                    .day-error-message,
+                    .month-error-message,
+                    .year-error-message,
+                    .date-error-message {
                         visibility: visible;
                         opacity: 1;
+                        transition: visibility 0s linear, opacity 0.3s linear;
                     }
                 }
             }
@@ -81,4 +94,3 @@
         }
     }
 }
-
