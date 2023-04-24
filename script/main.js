@@ -11,6 +11,7 @@ const monthWrapper = document.querySelector(".month-wrapper");
 const yearWrapper = document.querySelector(".year-wrapper");
 
 const form = document.querySelector("form");
+
 const dayErrorMsg = document.querySelector(".day-error-message");
 const monthErrorMsg = document.querySelector(".month-error-message");
 const yearErrorMsg = document.querySelector(".year-error-message");
@@ -38,20 +39,27 @@ const calculateAge = (e) => {
       monthWrapper.classList.remove("error");
     }
 
-    if (year > new Date().getFullYear() || year < 1900) {
+    if (year > new Date().getFullYear()) {
       yearWrapper.classList.add("error");
-      yearErrorMsg.textContent = "Must be a valid year in the past";
+      yearErrorMsg.textContent = "Must be in the past";
     } else {
       yearWrapper.classList.remove("error");
     }
 
-    const age = getAge(day, month, year);
-    if (age) {
-      dayDisplay.textContent = age.days;
-      monthDisplay.textContent = age.months;
-      yearDisplay.textContent = age.years;
-    } else {
-      dateErrorMsg.textContent = "Must be a valid date";
+    if (!yearWrapper.classList.contains("error")) {
+      const age = getAge(day, month, year);
+      if (age) {
+        dayDisplay.textContent = age.days;
+        monthDisplay.textContent = age.months;
+        yearDisplay.textContent = age.years;
+
+        dayDisplay.classList.add("animate");
+        monthDisplay.classList.add("animate");
+        yearDisplay.classList.add("animate");
+      } else {
+        dayWrapper.classList.add("error");
+        dateErrorMsg.textContent = "Must be a valid date";
+      }
     }
   } else {
     dayWrapper.classList.toggle("error", !day);

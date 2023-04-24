@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/responsive" as *;
+@use "../abstracts/animations" as *;
 
 .container {
     background-color: $white;
@@ -91,6 +92,12 @@
 
         span:nth-of-type(odd) {
             color: $purple;
+
+            &.animate {
+                @include animation-pulsate;
+            }
         }
     }
 }
+
+
