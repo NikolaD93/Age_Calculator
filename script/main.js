@@ -17,6 +17,16 @@ const monthErrorMsg = document.querySelector(".month-error-message");
 const yearErrorMsg = document.querySelector(".year-error-message");
 const dateErrorMsg = document.querySelector(".date-error-message");
 
+const preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", () => {
+  preloader.classList.add("active");
+});
+
+setTimeout(() => {
+  preloader.classList.remove("active");
+}, 3000);
+
 const calculateAge = (e) => {
   e.preventDefault();
 

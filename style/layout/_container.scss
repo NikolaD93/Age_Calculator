@@ -8,6 +8,8 @@
     border-radius: 20px 20px 100px 20px;
     padding: 50px 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: show 1s linear 3s;
+
 
     @include devices(mobile) {
         width: 90%;
@@ -100,4 +102,14 @@
     }
 }
 
-
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
