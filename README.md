@@ -16,7 +16,7 @@ Users should be able to:
 
 ## [Live App Preview](https://age-calculator-cyan.vercel.app/)
 
-## [YT Video Preview]()
+## [YT Video Preview](https://www.youtube.com/watch?v=K19fwBcMPsU)
 
 ![active-states](https://user-images.githubusercontent.com/95870159/234116897-b74fec09-e544-43d3-b17f-4b12a91f4070.jpg)
 
